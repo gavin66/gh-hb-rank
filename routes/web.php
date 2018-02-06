@@ -13,7 +13,7 @@
 
 
 // 接收微信消息
-Route::any('/wechat', 'WeChatController@serve');
+Route::any('/wechat', 'WechatController@serve');
 
 // 授权,获取用户信息中间件
 Route::group(['middleware' => ['web', 'wechat.oauth:default,snsapi_userinfo']], function () {
