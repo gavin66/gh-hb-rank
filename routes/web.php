@@ -33,6 +33,13 @@ Route::group(['middleware' => ['web', 'wechat.oauth:default,snsapi_userinfo']], 
 //    Route::get('/rank_test','WeChatController@rankStore');
 });
 
+// github 钩子
+Route::any('/github_hook', function (){
+    echo shell_exec('cd /data/wwwroot/gh-hb');
+    echo shell_exec('sudo /usr/bin/git pull 2>&1');
+});
+
+
 // ajax 请求...
 //Route::group(['middleware' => ['web', 'wechat_']],function (){
 //    Route::get('/rank','WeChatController@rank');
