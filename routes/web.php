@@ -39,6 +39,10 @@ Route::any('/github_hook', function (){
     echo shell_exec('sudo /usr/bin/git pull 2>&1');
 });
 
+Route::any('/test_hook', function (){
+    echo 'test hook';
+});
+
 
 // ajax 请求...
 //Route::group(['middleware' => ['web', 'wechat_']],function (){
