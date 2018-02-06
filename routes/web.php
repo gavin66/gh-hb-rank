@@ -30,7 +30,7 @@ Route::group(['middleware' => ['web', 'wechat.oauth:default,snsapi_userinfo']], 
     // 保存排行榜
     Route::post('/rank','WechatController@rankStore');
 
-//    Route::get('/rank_test','WeChatController@rankStore');
+    Route::get('/menu','WechatController@menu');
 });
 
 // github 钩子
