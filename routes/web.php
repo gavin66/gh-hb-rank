@@ -19,16 +19,16 @@ Route::any('/wechat', 'WeChatController@serve');
 Route::group(['middleware' => ['web', 'wechat.oauth:default,snsapi_userinfo']], function () {
 
     // 开始游戏
-    Route::get('/game', 'WeChatController@game');
+    Route::get('/game', 'WechatController@game');
 
     // 总排行榜
-    Route::get('/rank_all','WeChatController@rankAll');
+    Route::get('/rank_all','WechatController@rankAll');
 
     // 个人排行榜
-    Route::get('/rank','WeChatController@rank');
+    Route::get('/rank','WechatController@rank');
 
     // 保存排行榜
-    Route::post('/rank','WeChatController@rankStore');
+    Route::post('/rank','WechatController@rankStore');
 
 //    Route::get('/rank_test','WeChatController@rankStore');
 });
