@@ -145,36 +145,21 @@ class WechatController extends Controller
         return response()->json($this->jsonStru);
     }
 
+    /**
+     * 微信公众号菜单
+     * 
+     * @return mixed
+     */
     public function menu(){
         $buttons = [
             [
-                "type" => "click",
-                "name" => "今日歌曲",
-                "key"  => "V1001_TODAY_MUSIC"
-            ],
-            [
-                "name"       => "菜单",
-                "sub_button" => [
-                    [
-                        "type" => "view",
-                        "name" => "搜索",
-                        "url"  => "http://www.soso.com/"
-                    ],
-                    [
-                        "type" => "view",
-                        "name" => "视频",
-                        "url"  => "http://v.qq.com/"
-                    ],
-                    [
-                        "type" => "click",
-                        "name" => "赞一下我们",
-                        "key" => "V1001_GOOD"
-                    ],
-                ],
-            ],
+                "type" => "view",
+                "name" => "进入游戏",
+                "url" => 'http://test.hnqxs.com/game'
+            ]
         ];
 
         $officialAccount = EasyWeChat::officialAccount(); // 公众号
-        $officialAccount->menu->create($buttons);
+        return $officialAccount->menu->create($buttons);
     }
 }
