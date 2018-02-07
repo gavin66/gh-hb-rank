@@ -147,7 +147,7 @@ class WechatController extends Controller
 
     /**
      * 微信公众号菜单
-     * 
+     *
      * @return mixed
      */
     public function menu(){
