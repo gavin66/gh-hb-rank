@@ -6,9 +6,32 @@ body,html{
 	width: 100%;
 	height: 100%;
 	font-size: 50px;
+	font-family: "Arial";
+}
+.turnBox{ 
+	width:100%; 
+	height:100%; 
+	position:fixed; 
+	background:#000; 
+	top:0; 
+	left:0; 
+	text-align:center; 
+	z-index:999;
+}
+.turnBox p{ 
+	color:#fff; 
+	font-size:1em; 
+}
+.turnBox img{ 
+	width:20%; 
+	margin:15% 0 3%; 
 }
 img{
-   
+   -webkit-user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select:none;  
+    -o-user-select:none;  
+    user-select:none; 
 }
 #container{
 	width: 100%;
@@ -25,7 +48,7 @@ img{
 	background-image: url(../img/loading_bg.jpg);
 	background-size: cover;
 	background-position: center center;
-	display: none;
+	/*display: none;*/
 }
 .loading_content{
 	width: 4.5rem;
@@ -137,11 +160,6 @@ canvas{
 	position: absolute;
 	bottom: 0.42rem;
 	left: 0.24rem;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -webkit-user-select:none;  
-    -o-user-select:none;  
-    user-select:none; 
     z-index: 10;
 	
 }
@@ -151,11 +169,7 @@ canvas{
 	position: absolute;
 	bottom: 0.42rem;
 	right: 0.24rem;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -webkit-user-select:none;  
-    -o-user-select:none;  
-    user-select:none; 
+
     z-index: 10;
 }
 
@@ -173,6 +187,39 @@ canvas{
 	width: 100%;
 	height: 100%;
 	display: block;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select:none;  
+    -o-user-select:none;  
+    user-select:none; 
+}
+.arrow_left .touch_div_left{
+	width: 100%;
+	height: 100%;
+	display: block;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select:none;  
+    -o-user-select:none;  
+    user-select:none;
+    position: absolute;
+    top:0;
+    left: 0;
+     
+}
+.arrow_right .touch_div_right{
+	width: 100%;
+	height: 100%;
+	display: block;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select:none;  
+    -o-user-select:none;  
+    user-select:none;
+    position: absolute;
+    top:0;
+    left: 0;
+     
 }
 .play_div{
 	width: 100%;
@@ -285,7 +332,7 @@ canvas{
     text-align: center;
     font-size: 1rem;
     font-weight: bold;
-    font-family: arial;
+    font-family: "Arial";
     position: relative;
 }
 .text2{
@@ -300,8 +347,8 @@ canvas{
     text-align: center;
     font-size: 1rem;
     font-weight: bold;
-     font-family: arial;
-     position: relative;
+    font-family: "Arial";
+    position: relative;
 }
 .mark_div{
 	width: 1.74rem;
@@ -320,7 +367,9 @@ canvas{
 	margin: 0.3rem auto 0;
 	text-align: center;
 	line-height: 0.83rem;
-	font-size: 0.8rem;
+	font-size: 0.6rem;
+	font-weight: bold;
+	font-family: "Arial";
 }
 .play_content{
 	width: 100%;
@@ -330,9 +379,31 @@ canvas{
 	left: 0;
 	z-index: 9;
 }
+.people_1{
+    width: 0.91rem;
+    height: 0.8rem;
+    position: absolute;
+    top: 21%;
+    left: 40%;
+}
+.people_2{
+	width: 0.53rem;
+	height: 1.08rem;
+	position: absolute;
+    top: 44%;
+    left: 23%;
+}
+.people_3{
+
+	width: 1.22rem;
+    height: 1.44rem;
+    position: absolute;
+    top: 58%;
+    right: 9%;
+}
 .panda_div{
-	width: 2.04rem;
-	height: 2.42rem;
+	width: 1.8rem;
+	height: 2.14rem;
 	position: absolute;
 	bottom: 0;
 	left: 0;
@@ -437,8 +508,8 @@ canvas{
 .share_btn{
 	display: block;
 	margin: 0.1rem auto 0;
-	width: 2.32rem;
-	height: 1.14rem;
+	width: 2.8rem;
+	height: 1.15rem;
 }
 .person_div{
 	width: 100%;
@@ -521,7 +592,7 @@ canvas{
 	line-height: 0.44rem;
 	color: #0e4f87;
 	font-size: 0.3rem;
-	font-family: arial;
+	font-family: "Arial";
 }
 .btn_group{
 	width: 5.2rem;
@@ -531,8 +602,8 @@ canvas{
 .share_btn_1{
 	display: block;
 	margin: 0.1rem auto 0;
-	width: 2.32rem;
-	height: 1.14rem;
+	width: 2.8rem;
+	height: 1.15rem;
 }
 
 
@@ -590,6 +661,7 @@ canvas{
 	font-size: 0.2rem;
 	color: #194d93;
     margin-left: 0.05rem;
+    font-family: "Arial";
 	
 }
 .rank_nickname{
@@ -605,7 +677,9 @@ canvas{
 	height: 100%;
 	text-align: center;
 	font-size: 0.2rem;
+	
 	color: #194d93;
+	font-family: "Arial";
 }
 .items_1 img{
 	height: 100%;
@@ -671,10 +745,9 @@ canvas{
 }
 .share_icon{
 	position: absolute;
-	width: 4.76rem;
-	height: 4.93rem;
-	right: 0.24rem;
-	top: 0.24rem;
+	width: 100%;
+	left: 0;
+	top: 0;
 	
 }
 
