@@ -96,9 +96,9 @@
         <img src="img/logo.png" class="logo_img"/>
         <img src="img/active.png" class="active_img"/>
         <div class="head_div">
-            <img src="{{ $avatar }}" class="head_img"/>
+            <img src="{{ $user->avatar }}" class="head_img"/>
         </div>
-        <p class="nickname">{{ $nickname }}</p>
+        <p class="nickname">{{ $user->nickname }}</p>
         <div class="person_content">
             <img src="img/peson_title.png" class="person_title"/>
             <img src="img/p_title.png" class="p_title_img"/>
@@ -179,6 +179,44 @@
 
 </div>
 </body>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript" charset="utf-8">
+  wx.config(<?php echo $app->jssdk->buildConfig(array('onMenuShareTimeline', 'onMenuShareAppMessage'), false) ?>);
+  wx.ready(function(){
+    // config信息验证后会执行ready方法，所有接口调用都必须在config接口获得结果之后，config是一个客户端的异步操作，所以如果需要在页面加载时就调用相关接口，则须把相关接口放在ready函数中调用来确保正确执行。对于用户触发时才调用的接口，则可以直接调用，不需要放在ready函数中。
+    wx.onMenuShareTimeline({
+      title: '国航胖安达抢红包大战！', // 分享标题
+      link: '', // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+      imgUrl: '{{ asset('img/share_icon.jpg') }}', // 分享图标
+      success: function () {
+        // 用户确认分享后执行的回调函数
+        console.log('分享朋友圈成功');
+      },
+      cancel: function () {
+        // 用户取消分享后执行的回调函数
+        console.log('取消朋友圈分享');
+      }
+    });
+
+    wx.onMenuShareAppMessage({
+      title: '国航胖安达抢红包大战！', // 分享标题
+      desc: '助力冬奥会，叫上小伙伴走起吧！', // 分享描述
+      link: '', // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+      imgUrl: '{{ asset('img/share_icon.jpg') }}', // 分享图标
+      type: 'link', // 分享类型,music、video或link，不填默认为link
+      dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+      success: function () {
+        // 用户确认分享后执行的回调函数
+        console.log('分享用户成功');
+      },
+      cancel: function () {
+        // 用户取消分享后执行的回调函数
+        console.log('取消用户分享');
+      }
+    });
+
+  });
+</script>
 <script src="js/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
 <script src="js/catPlug.js" type="text/javascript" charset="utf-8"></script>
 <script src="js/index.js" type="text/javascript" charset="utf-8"></script>

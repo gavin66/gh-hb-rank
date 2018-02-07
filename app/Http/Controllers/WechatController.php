@@ -13,7 +13,7 @@ class WechatController extends Controller
 {
     private $jsonStru = [
         'code' => 0,
-        'msg' => '',
+        'msg'  => '',
         'data' => [],
     ];
 
@@ -25,7 +25,7 @@ class WechatController extends Controller
     public function serve()
     {
         $officialAccount = EasyWeChat::officialAccount(); // 公众号
-        $officialAccount->server->push(function($message){
+        $officialAccount->server->push(function ( $message ) {
 //            switch ($message['MsgType']) {
 //                case 'event':
 //                    return '收到事件消息';
@@ -66,13 +66,14 @@ class WechatController extends Controller
      *
      * @return string
      */
-    public function game(){
+    public function game()
+    {
         $userData = session('wechat.oauth_user.default'); // 拿到授权用户资料
 
         // 新增一个新用户
-        try{
+        try {
             $user = User::findOrFail($userData['id']);
-        }catch (ModelNotFoundException $exception){
+        } catch ( ModelNotFoundException $exception ) {
             $user = new User;
             $user->openid = $userData['id'];
             $user->name = $userData['name'];
@@ -85,15 +86,17 @@ class WechatController extends Controller
             $isSuccess = $user->save();
         }
 
+
         // 返回游戏 blade
-        return view('game',$user);
+        return view('game', [ 'user' => $user, 'app' => EasyWeChat::officialAccount() ]);
     }
 
     /**
      * 总排行榜
      */
-    public function rankAll(){
-        $rankAll = RankAll::select('score','nickname')->orderBy('score','desc')->limit(10)->get();
+    public function rankAll()
+    {
+        $rankAll = RankAll::select('score', 'nickname')->orderBy('score', 'desc')->limit(10)->get();
 
         return response()->json($rankAll);
     }
@@ -103,10 +106,12 @@ class WechatController extends Controller
      *
      * @return string
      */
-    public function rank(){
+    public function rank()
+    {
         $userData = session('wechat.oauth_user.default'); // 拿到授权用户资料
 
-        $rank = Rank::select('score')->where('openid',$userData['id'])->orderBy('score','desc')->limit(10)->get();
+        $rank = Rank::select('score')->where('openid', $userData['id'])->orderBy('score', 'desc')->limit(10)->get();
+
 //        $rank = Rank::select('score')->where('openid',$userData['id'])->get();
 
         return response()->json($rank);
@@ -119,12 +124,14 @@ class WechatController extends Controller
      *
      * @return string
      */
-    public function rankStore(Request $request){
+    public function rankStore( Request $request )
+    {
         // 返回 blade
-        if($request->has('score') == false){
+        if ( $request->has('score') == false ) {
             $re = $this->jsonStru;
             $re['code'] = 1;
             $re['msg'] = '分数未上传';
+
             return response()->json($re);
         }
 
@@ -135,10 +142,11 @@ class WechatController extends Controller
         $rank->score = intval($request->input('score'));
         $isSuccess = $rank->save();
 
-        if($isSuccess == false){
+        if ( $isSuccess == false ) {
             $re = $this->jsonStru;
             $re['code'] = 1;
             $re['msg'] = '未知错误';
+
             return response()->json($re);
         }
 
@@ -150,16 +158,18 @@ class WechatController extends Controller
      *
      * @return mixed
      */
-    public function menu(){
+    public function menu()
+    {
         $buttons = [
             [
                 "type" => "view",
                 "name" => "进入游戏",
-                "url" => 'http://test.hnqxs.com/game'
+                "url"  => 'http://test.hnqxs.com/game'
             ]
         ];
 
         $officialAccount = EasyWeChat::officialAccount(); // 公众号
+
         return $officialAccount->menu->create($buttons);
     }
 }
