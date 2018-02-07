@@ -179,7 +179,7 @@
   var _hmt = _hmt || [];
   (function() {
     var hm = document.createElement("script");
-    hm.src = "https://hm.baidu.com/hm.js?a5a981029489fd6d583cbf31c0ae53d0";
+    hm.src = "https://hm.baidu.com/hm.js?c9e7e83f1b731e76518e40f623a76e60";
     var s = document.getElementsByTagName("script")[0];
     s.parentNode.insertBefore(hm, s);
   })();
