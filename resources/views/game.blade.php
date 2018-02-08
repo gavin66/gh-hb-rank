@@ -124,10 +124,10 @@
             </div>-->
 
         </div>
-        <div class="btn_group">
+        <!--<div class="btn_group">
             <img src="img/ranking.png" class="ranking_img_2 ranking_btn"/>
             <img src="img/gohome.png" class="gohome_img"/>
-        </div>
+        </div>-->
         <img src="img/share_btn.png" class="share_btn_1 share_click"/>
     </div>
 
@@ -139,20 +139,7 @@
             <img src="img/rank_title.png" class="rank_title"/>
             <img src="img/ranking_img.png" class="rank_img_img"/>
             <div class="ranking_name">
-                <!--<div class="items_1"><p class="place_num"><img src="img/first.png"/></p><p class="rank_nickname">wwww</p><p class="mark_num_1">999</p></div>
-                <div class="items_1"><p class="place_num"><img src="img/second.png"/></p><p class="rank_nickname">wwww</p><p class="mark_num_1">999</p></div>
-                <div class="items_1"><p class="place_num"><img src="img/third.png"/></p><p class="rank_nickname">wwww</p><p class="mark_num_1">999</p></div>
-                <div class="items_1"><p class="place_num">4</p><p class="rank_nickname">wwww</p><p class="mark_num_1">999</p></div>
-                <div class="items_1"><p class="place_num">5</p><p class="rank_nickname">wwww</p><p class="mark_num_1">999</p></div>
-                <div class="items_1"><p class="place_num">6</p><p class="rank_nickname">wwww</p><p class="mark_num_1">999</p></div>
-                <div class="items_1"><p class="place_num">7</p><p class="rank_nickname">wwww</p><p class="mark_num_1">999</p></div>
-                <div class="items_1"><p class="place_num">8</p><p class="rank_nickname">wwww</p><p class="mark_num_1">999</p></div>
-                <div class="items_1"><p class="place_num">9</p><p class="rank_nickname">wwww</p><p class="mark_num_1">999</p></div>
-                <div class="items_1"><p class="place_num">10</p><p class="rank_nickname">wwww</p><p class="mark_num_1">999</p></div>
-                <div class="items_1"><p class="place_num">11</p><p class="rank_nickname">wwww</p><p class="mark_num_1">999</p></div>
-                <div class="items_1"><p class="place_num">12</p><p class="rank_nickname">wwww</p><p class="mark_num_1">999</p></div>
-                <div class="items_1"><p class="place_num">13</p><p class="rank_nickname">wwww</p><p class="mark_num_1">999</p></div>
-                <div class="items_1"><p class="place_num">14</p><p class="rank_nickname">wwww</p><p class="mark_num_1">999</p></div>-->
+
             </div>
 
         </div>
@@ -191,6 +178,7 @@
       success: function () {
         // 用户确认分享后执行的回调函数
         console.log('分享朋友圈成功');
+        _hmt.push(['_trackEvent', '游戏结束页_分享好友_分享朋友圈', 'event']);
       },
       cancel: function () {
         // 用户取消分享后执行的回调函数
@@ -208,6 +196,7 @@
       success: function () {
         // 用户确认分享后执行的回调函数
         console.log('分享用户成功');
+        _hmt.push(['_trackEvent', '游戏结束页_分享好友_分享好友', 'event']);
       },
       cancel: function () {
         // 用户取消分享后执行的回调函数
