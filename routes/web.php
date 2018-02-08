@@ -49,3 +49,5 @@ Route::any('/github_hook', function (){
 //Route::any('/games', function (){
 //    return view('game');
 //});
+
+// 测试钩子
