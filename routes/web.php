@@ -32,22 +32,11 @@ Route::group(['middleware' => ['web', 'wechat.oauth:default,snsapi_userinfo']], 
 
 });
 
-//Route::get('/menu','WechatController@menu');
-
 // github 钩子
 Route::any('/github_hook', function (){
     echo shell_exec('cd /btdata/site/guohang-hongbao');
     echo shell_exec('/usr/bin/git pull 2>&1');
 });
 
-// ajax 请求...
-//Route::group(['middleware' => ['web', 'wechat_']],function (){
-//    Route::get('/rank','WeChatController@rank');
-//    Route::post('/rank','WeChatController@rank_store');
-//});
-
-//Route::any('/games', function (){
-//    return view('game');
-//});
-
-// 测试钩子
+// 设置公众号菜单,没有用了
+//Route::get('/menu','WechatController@menu');
