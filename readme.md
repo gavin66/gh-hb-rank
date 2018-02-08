@@ -22,16 +22,16 @@ end//
 delimiter ;
 
 -- 定时任务
-create event schedule_rank_all_10min
-on schedule every 10 minute
+create event schedule_rank_all_1min
+on schedule every 1 minute
 on completion preserve enable
 do call rank_all_update();
 
 -- 开启定时任务
-alter event schedule_rank_all_10min on completion preserve enable;
+alter event schedule_rank_all_1min on completion preserve enable;
 
 -- 关闭定时任务
-alter event schedule_rank_all_10min on completion preserve disable;
+alter event schedule_rank_all_1min on completion preserve disable;
 
 -- 查看定时任务
 SELECT event_name,event_definition,interval_value,interval_field,status FROM information_schema.EVENTS;
