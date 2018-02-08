@@ -370,7 +370,6 @@ window.onload = function () {
 
   //页面逻辑
   $(".start_btn").on("click", function () {
-    _hmt.push(['_trackEvent', '首页_开抢', 'event']);
     $(".play_div").show();
     pandaMove();
     countDown();
@@ -476,7 +475,6 @@ window.onload = function () {
   //分享
   var shareTimer = null;
   $(".share_click").on("click", function () {
-    _hmt.push(['_trackEvent', '游戏结束页_分享好友', 'event']);
     $(".share_div").show();
     shareTimer = setTimeout(function () {
       $(".share_div").hide();
