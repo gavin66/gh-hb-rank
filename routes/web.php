@@ -34,7 +34,7 @@ Route::group(['middleware' => ['web', 'wechat.oauth:default,snsapi_userinfo']], 
 
 // github 钩子
 Route::any('/github_hook', function (){
-    echo shell_exec('cd /btdata/site/guohang-hongbao');
+    echo shell_exec('cd /data/wwwroot/hb2.hnqxs.com');
     echo shell_exec('/usr/bin/git pull 2>&1');
 });
 
