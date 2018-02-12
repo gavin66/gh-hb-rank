@@ -8,6 +8,7 @@ use App\Rank;
 use App\RankAll;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class WechatController extends Controller
 {
@@ -141,6 +142,9 @@ class WechatController extends Controller
         $rank->openid = $userData['id'];
         $rank->score = intval($request->input('score'));
         $isSuccess = $rank->save();
+
+        // 手动执行存储过程
+        DB::statement('call rank_all_update()');
 
         if ( $isSuccess == false ) {
             $re = $this->jsonStru;
